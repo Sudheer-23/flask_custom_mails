@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+    font-family: sans-serif; /* Change your font family */
+  }
+  
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+  
+  .content-table thead tr {
+    background-color:blue;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+    background-color: #eae0e0;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(161, 161, 171);
+  }
+  
+  
+
+  tr:hover{
+    background-color: red;
+  }
+  
+  label{
+    padding: 10px;
+    margin: 20px;
+  }
+  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+<form action="/" method="POST">
+<label for="year-selection">Choose a id:</label>
+<select name="year" id="year">
+  <option value=1>1</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+  <option value=4>4</option>
+</select>
+
+
+<input type='submit'>
+</form>
+  <table class="content-table">
+
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Mobile</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+         {% for row in table1 %}
+
+          <tr>
+
+            <td>{{row.0}}</td>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.3}}</td>
+            <td>{{row.4}}</td>
+            <td>{{row.5}}</td>
+            <td>{{row.6}}</td>
+            <td>{{row.7}}</td>
+            <td>{{row.8}}</td>
+            <td>{{row.9}}</td>
+            <td>{{row.10}}</td>
+
+          </tr>
+         {% endfor %}
+  </table>
+
+  <form action="{{url_for('send_mail')}}" method="">
+    <button type="submit">Send Mail</button>
+</form>
+</body>
+</html>
+
+
